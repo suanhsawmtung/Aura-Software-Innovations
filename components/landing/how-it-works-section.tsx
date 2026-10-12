@@ -4,7 +4,7 @@ import { useEffect, useRef, useState } from "react";
 
 const principles = [
   {
-    number: "01",
+    number: "A",
     title: "Small team, senior thinking",
     description:
       "We are a two-person software team that stays close to the work. You get direct access to the people designing, building, and shipping your product.",
@@ -15,7 +15,7 @@ const principles = [
 }`,
   },
   {
-    number: "02",
+    number: "B",
     title: "Built around your goals",
     description:
       "Every engagement starts with the outcome in mind. We turn a clear idea into a practical product plan, then make thoughtful trade-offs together.",
@@ -26,7 +26,7 @@ const principles = [
 })`,
   },
   {
-    number: "03",
+    number: "C",
     title: "Craft that lasts",
     description:
       "We care about the details users feel and the foundations developers depend on: calm interfaces, clean code, and software ready for what comes next.",
