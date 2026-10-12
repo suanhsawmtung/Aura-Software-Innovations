@@ -2,49 +2,46 @@
 
 import { useEffect, useRef, useState } from "react";
 
-const steps = [
+const principles = [
   {
-    number: "I",
-    title: "Connect your tools",
+    number: "01",
+    title: "Small team, senior thinking",
     description:
-      "Integrate with your existing stack in minutes. We support 200+ data sources out of the box.",
-    code: `import { optimus } from '@optimus/core'
-
-optimus.connect({
-  source: 'your-database',
-  sync: true
+      "We are a two-person software team that stays close to the work. You get direct access to the people designing, building, and shipping your product.",
+    code: `const team = {
+  people: 2,
+  layers: 0,
+  pointOfContact: 'the builders'
+}`,
+  },
+  {
+    number: "02",
+    title: "Built around your goals",
+    description:
+      "Every engagement starts with the outcome in mind. We turn a clear idea into a practical product plan, then make thoughtful trade-offs together.",
+    code: `const project = await aura.start({
+  goal: 'make an idea real',
+  approach: 'clear, collaborative',
+  scope: 'focused'
 })`,
   },
   {
-    number: "II",
-    title: "Build your workflow",
+    number: "03",
+    title: "Craft that lasts",
     description:
-      "Design powerful automations with our visual builder or write code directly.",
-    code: `optimus.workflow('process', {
-  trigger: 'event',
-  actions: [
-    'validate',
-    'transform', 
-    'deliver'
-  ]
-})`,
-  },
-  {
-    number: "III",
-    title: "Ship to production",
-    description:
-      "Deploy globally with zero configuration. Your app goes live in under 30 seconds.",
-    code: `optimus.deploy({
-  target: 'production',
-  regions: 'auto'
+      "We care about the details users feel and the foundations developers depend on: calm interfaces, clean code, and software ready for what comes next.",
+    code: `await product.ship({
+  experience: 'considered',
+  codebase: 'maintainable',
+  nextChapter: 'ready'
 })
 
-// Deployed to 12 regions`,
+// Built with care`,
   },
 ];
 
 export function HowItWorksSection() {
-  const [activeStep, setActiveStep] = useState(0);
+  const [activePrinciple, setActivePrinciple] = useState(0);
   const [isVisible, setIsVisible] = useState(false);
   const sectionRef = useRef<HTMLDivElement>(null);
 
@@ -62,7 +59,7 @@ export function HowItWorksSection() {
 
   useEffect(() => {
     const interval = setInterval(() => {
-      setActiveStep((prev) => (prev + 1) % steps.length);
+      setActivePrinciple((prev) => (prev + 1) % principles.length);
     }, 5000);
     return () => clearInterval(interval);
   }, []);
@@ -71,79 +68,76 @@ export function HowItWorksSection() {
     <section
       id="about-us"
       ref={sectionRef}
-      className="relative py-24 lg:py-32 bg-foreground text-background overflow-hidden"
+      className="relative overflow-hidden bg-foreground py-24 text-background lg:py-32"
     >
-      {/* Diagonal lines pattern */}
-      <div className="absolute inset-0 opacity-[0.03] pointer-events-none">
+      <div className="pointer-events-none absolute inset-0 opacity-[0.03]">
         <div
           className="absolute inset-0"
           style={{
             backgroundImage: `repeating-linear-gradient(
-            -45deg,
-            transparent,
-            transparent 40px,
-            currentColor 40px,
-            currentColor 41px
-          )`,
+              -45deg,
+              transparent,
+              transparent 40px,
+              currentColor 40px,
+              currentColor 41px
+            )`,
           }}
         />
       </div>
 
-      <div className="relative z-10 max-w-350 mx-auto px-6 lg:px-12">
-        {/* Header */}
-        <div className="mb-16 lg:mb-24">
-          <span className="inline-flex items-center gap-3 text-sm font-mono text-background/50 mb-6">
-            <span className="w-8 h-px bg-background/30" />
-            Process
+      <div className="relative z-10 mx-auto max-w-350 px-6 lg:px-12">
+        <div className="mb-16 max-w-3xl lg:mb-24">
+          <span className="mb-6 inline-flex items-center gap-3 font-mono text-sm text-background/50">
+            <span className="h-px w-8 bg-background/30" />
+            About Aura
           </span>
           <h2
-            className={`text-4xl lg:text-6xl tracking-tight transition-all duration-700 ${
+            className={`text-4xl tracking-tight transition-all duration-700 lg:text-6xl ${
               isVisible
-                ? "opacity-100 translate-y-0"
-                : "opacity-0 translate-y-4"
+                ? "translate-y-0 opacity-100"
+                : "translate-y-4 opacity-0"
             }`}
           >
-            Three steps.
+            Two friends.
             <br />
-            <span className="text-background/50">Infinite possibilities.</span>
+            <span className="text-background/50">One thoughtful way to build.</span>
           </h2>
+          <p className="mt-8 max-w-xl text-lg leading-relaxed text-background/60">
+            Aura Software Innovations is a freelance software team for people
+            with ambitious ideas and a preference for doing things properly.
+          </p>
         </div>
 
-        {/* Main content */}
-        <div className="grid lg:grid-cols-2 gap-16 lg:gap-24">
-          {/* Steps */}
-          <div className="space-y-0">
-            {steps.map((step, index) => (
+        <div className="grid gap-16 lg:grid-cols-2 lg:gap-24">
+          <div className="flex flex-col">
+            {principles.map((principle, index) => (
               <button
-                key={step.number}
+                key={principle.number}
                 type="button"
-                onClick={() => setActiveStep(index)}
-                className={`w-full text-left py-8 border-b border-background/10 transition-all duration-500 group ${
-                  activeStep === index
+                onClick={() => setActivePrinciple(index)}
+                aria-pressed={activePrinciple === index}
+                className={`group w-full border-b border-background/10 py-7 text-left transition-all duration-500 first:border-t ${
+                  activePrinciple === index
                     ? "opacity-100"
-                    : "opacity-40 hover:opacity-70"
+                    : "opacity-40 hover:opacity-75"
                 }`}
               >
                 <div className="flex items-start gap-6">
-                  <span className="text-3xl text-background/30">
-                    {step.number}
+                  <span className="pt-1 font-mono text-sm text-background/35">
+                    {principle.number}
                   </span>
                   <div className="flex-1">
-                    <h3 className="text-2xl lg:text-3xl mb-3 group-hover:translate-x-2 transition-transform duration-300">
-                      {step.title}
+                    <h3 className="mb-3 text-2xl transition-transform duration-300 group-hover:translate-x-1 lg:text-3xl">
+                      {principle.title}
                     </h3>
-                    <p className="text-background/60 leading-relaxed">
-                      {step.description}
+                    <p className="max-w-lg leading-relaxed text-background/60">
+                      {principle.description}
                     </p>
-
-                    {/* Progress indicator */}
-                    {activeStep === index && (
-                      <div className="mt-4 h-px bg-background/20 overflow-hidden">
+                    {activePrinciple === index && (
+                      <div className="mt-5 h-px overflow-hidden bg-background/20">
                         <div
-                          className="h-full bg-background w-0"
-                          style={{
-                            animation: "progress 5s linear forwards",
-                          }}
+                          className="h-full w-0 bg-background"
+                          style={{ animation: "progress 5s linear forwards" }}
                         />
                       </div>
                     )}
@@ -153,58 +147,54 @@ export function HowItWorksSection() {
             ))}
           </div>
 
-          {/* Code display */}
-          <div className="lg:sticky lg:top-32 self-start">
-            <div className="border border-background/10 overflow-hidden">
-              {/* Window header */}
-              <div className="px-6 py-4 border-b border-background/10 flex items-center justify-between">
-                <div className="flex gap-2">
-                  <div className="w-3 h-3 rounded-full bg-background/20" />
-                  <div className="w-3 h-3 rounded-full bg-background/20" />
-                  <div className="w-3 h-3 rounded-full bg-background/20" />
+          <div className="self-start lg:sticky lg:top-32">
+            <div className="overflow-hidden border border-background/10 bg-background/[0.02]">
+              <div className="flex items-center justify-between border-b border-background/10 px-6 py-4">
+                <div className="flex gap-2" aria-hidden="true">
+                  <div className="size-3 rounded-full bg-background/20" />
+                  <div className="size-3 rounded-full bg-background/20" />
+                  <div className="size-3 rounded-full bg-background/20" />
                 </div>
-                <span className="text-xs font-mono text-background/40">
-                  workflow.ts
+                <span className="font-mono text-xs text-background/40">
+                  aura.ts
                 </span>
               </div>
 
-              {/* Code content */}
-              <div className="p-8 font-mono text-sm min-h-70">
+              <div className="min-h-70 p-6 font-mono text-xs sm:p-8 sm:text-sm">
                 <pre className="text-background/70">
-                  {steps[activeStep].code.split("\n").map((line, lineIndex) => (
-                    <div
-                      key={`${activeStep}-${lineIndex}`}
-                      className="leading-loose code-line-reveal"
-                      style={{
-                        animationDelay: `${lineIndex * 80}ms`,
-                      }}
-                    >
-                      <span className="text-background/20 select-none w-8 inline-block">
-                        {lineIndex + 1}
-                      </span>
-                      <span className="inline-flex">
-                        {line.split("").map((char, charIndex) => (
-                          <span
-                            key={`${activeStep}-${lineIndex}-${charIndex}`}
-                            className="code-char-reveal"
-                            style={{
-                              animationDelay: `${lineIndex * 80 + charIndex * 15}ms`,
-                            }}
-                          >
-                            {char === " " ? "\u00A0" : char}
-                          </span>
-                        ))}
-                      </span>
-                    </div>
-                  ))}
+                  {principles[activePrinciple].code
+                    .split("\n")
+                    .map((line, lineIndex) => (
+                      <div
+                        key={`${activePrinciple}-${lineIndex}`}
+                        className="code-line-reveal leading-loose"
+                        style={{ animationDelay: `${lineIndex * 80}ms` }}
+                      >
+                        <span className="inline-block w-8 select-none text-background/20">
+                          {lineIndex + 1}
+                        </span>
+                        <span className="inline-flex">
+                          {line.split("").map((char, charIndex) => (
+                            <span
+                              key={`${activePrinciple}-${lineIndex}-${charIndex}`}
+                              className="code-char-reveal"
+                              style={{
+                                animationDelay: `${lineIndex * 80 + charIndex * 15}ms`,
+                              }}
+                            >
+                              {char === " " ? "\u00A0" : char}
+                            </span>
+                          ))}
+                        </span>
+                      </div>
+                    ))}
                 </pre>
               </div>
 
-              {/* Status */}
-              <div className="px-6 py-4 border-t border-background/10 flex items-center gap-3">
-                <span className="w-2 h-2 rounded-full bg-green-400 animate-pulse" />
-                <span className="text-xs font-mono text-background/40">
-                  Ready
+              <div className="flex items-center gap-3 border-t border-background/10 px-6 py-4">
+                <span className="size-2 animate-pulse rounded-full bg-green-400" />
+                <span className="font-mono text-xs text-background/40">
+                  Building with intention
                 </span>
               </div>
             </div>
@@ -214,12 +204,8 @@ export function HowItWorksSection() {
 
       <style jsx>{`
         @keyframes progress {
-          from {
-            width: 0%;
-          }
-          to {
-            width: 100%;
-          }
+          from { width: 0%; }
+          to { width: 100%; }
         }
 
         .code-line-reveal {
@@ -229,10 +215,7 @@ export function HowItWorksSection() {
         }
 
         @keyframes lineReveal {
-          to {
-            opacity: 1;
-            transform: translateX(0);
-          }
+          to { opacity: 1; transform: translateX(0); }
         }
 
         .code-char-reveal {
@@ -242,10 +225,7 @@ export function HowItWorksSection() {
         }
 
         @keyframes charReveal {
-          to {
-            opacity: 1;
-            filter: blur(0);
-          }
+          to { opacity: 1; filter: blur(0); }
         }
       `}</style>
     </section>
