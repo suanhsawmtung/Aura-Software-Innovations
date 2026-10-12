@@ -108,7 +108,7 @@ export function DevelopersSection() {
 
   return (
     <section
-      id="developers"
+      id="portfolio"
       ref={sectionRef}
       className="relative py-24 lg:py-32 overflow-hidden"
     >

@@ -5,31 +5,31 @@ import { useEffect, useRef, useState } from "react";
 const features = [
   {
     number: "01",
-    title: "Instant Deployment",
+    title: "UI/UX Design",
     description:
-      "Push to production in seconds. Our edge network ensures your applications load instantly, anywhere in the world.",
-    visual: "deploy",
+      "Design with purpose. Intuitive interfaces, thoughtful user journeys, and experiences people love.",
+    visual: "collab",
   },
   {
     number: "02",
-    title: "AI-Native Workflows",
+    title: "Web & Mobile App Development",
     description:
-      "Build intelligent applications with built-in AI capabilities. From inference to training, everything scales automatically.",
+      "Turn ideas into reality. Modern websites, powerful web apps, and seamless mobile experiences.",
     visual: "ai",
   },
   {
     number: "03",
-    title: "Real-time Collaboration",
+    title: "Backend & API Development",
     description:
-      "Work together seamlessly. Live preview, instant feedback, and version control that actually makes sense.",
-    visual: "collab",
+      "Build a solid foundation. Secure APIs, reliable databases, and backend systems that grow with you.",
+    visual: "security",
   },
   {
     number: "04",
-    title: "Enterprise Security",
+    title: "Deployment & Cloud Services",
     description:
-      "Bank-grade encryption, SOC 2 compliance, and granular access controls. Your data stays yours.",
-    visual: "security",
+      "Deploy with confidence. Reliable hosting, smooth releases, and cloud infrastructure built to scale.",
+    visual: "deploy",
   },
 ];
 
@@ -466,7 +466,7 @@ export function FeaturesSection() {
   }, []);
 
   return (
-    <section id="features" ref={sectionRef} className="relative py-24 lg:py-32">
+    <section id="services" ref={sectionRef} className="relative py-24 lg:py-32">
       <div className="max-w-350 mx-auto px-6 lg:px-12">
         {/* Header */}
         <div className="mb-16 lg:mb-24">

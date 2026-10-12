@@ -5,10 +5,14 @@ import { Menu, X } from "lucide-react";
 import { useEffect, useState } from "react";
 
 const navLinks = [
-  { name: "Features", href: "#features" },
-  { name: "How it works", href: "#how-it-works" },
-  { name: "Developers", href: "#developers" },
-  { name: "Pricing", href: "#pricing" },
+  // { name: "Features", href: "#features" },
+  // { name: "How it works", href: "#how-it-works" },
+  // { name: "Developers", href: "#developers" },
+  // { name: "Pricing", href: "#pricing" },
+  { name: "Services", href: "#services" },
+  { name: "About Us", href: "#about-us" },
+  { name: "Portfolio", href: "#portfolio" },
+  { name: "Let's Work Together", href: "#contact" },
 ];
 
 export function Navigation() {
@@ -46,17 +50,17 @@ export function Navigation() {
             <span
               className={`tracking-tight transition-all duration-500 ${isScrolled ? "text-xl" : "text-2xl"}`}
             >
-              Optimus
+              AURA
             </span>
             <span
               className={`text-muted-foreground font-mono transition-all duration-500 ${isScrolled ? "text-[10px] mt-0.5" : "text-xs mt-1"}`}
             >
-              TM
+              Software Innovations
             </span>
           </a>
 
           {/* Desktop Navigation */}
-          <div className="hidden md:flex items-center gap-12">
+          <div className="hidden lg:flex items-center gap-12">
             {navLinks.map((link) => (
               <a
                 key={link.name}
@@ -70,7 +74,7 @@ export function Navigation() {
           </div>
 
           {/* Desktop CTA */}
-          <div className="hidden md:flex items-center gap-4">
+          <div className="hidden lg:flex items-center gap-4">
             <a
               href="#"
               className={`text-foreground/70 hover:text-foreground transition-all duration-500 ${isScrolled ? "text-xs" : "text-sm"}`}
@@ -88,7 +92,7 @@ export function Navigation() {
           {/* Mobile Menu Button */}
           <button
             onClick={() => setIsMobileMenuOpen(!isMobileMenuOpen)}
-            className="md:hidden p-2"
+            className="lg:hidden p-2"
             aria-label="Toggle menu"
           >
             {isMobileMenuOpen ? (
@@ -102,13 +106,20 @@ export function Navigation() {
 
       {/* Mobile Menu - Full Screen Overlay */}
       <div
-        className={`md:hidden fixed inset-0 bg-background z-40 transition-all duration-500 ${
+        className={`lg:hidden fixed inset-0 bg-background z-40 transition-all duration-500 ${
           isMobileMenuOpen
             ? "opacity-100 pointer-events-auto"
             : "opacity-0 pointer-events-none"
         }`}
         style={{ top: 0 }}
       >
+        <Button
+          variant="ghost"
+          className=" absolute top-4 right-4"
+          onClick={() => setIsMobileMenuOpen(false)}
+        >
+          <X className="size-8" />
+        </Button>
         <div className="flex flex-col h-full px-8 pt-28 pb-8">
           {/* Navigation Links */}
           <div className="flex-1 flex flex-col justify-center gap-8">

@@ -64,7 +64,7 @@ export function HeroSection() {
         >
           <span className="inline-flex items-center gap-3 text-sm font-mono text-muted-foreground">
             <span className="w-8 h-px bg-foreground/30" />
-            The platform for modern teams
+            Your Partner in Digital Innovation
           </span>
         </div>
 
@@ -77,8 +77,8 @@ export function HeroSection() {
                 : "opacity-0 translate-y-8"
             }`}
           >
-            <span className="block">The platform</span>
-            <span className="block">
+            <span className="block">From Concept to Production</span>
+            {/* <span className="block">
               to{" "}
               <span className="relative inline-block">
                 <span key={wordIndex} className="inline-flex">
@@ -96,7 +96,7 @@ export function HeroSection() {
                 </span>
                 <span className="absolute -bottom-2 left-0 right-0 h-3 bg-foreground/10" />
               </span>
-            </span>
+            </span> */}
           </h1>
         </div>
 
@@ -109,8 +109,8 @@ export function HeroSection() {
                 : "opacity-0 translate-y-4"
             }`}
           >
-            Your toolkit to stop configuring and start innovating. Securely
-            build, deploy, and scale the best experiences.
+            We build modern websites, web applications, and custom software that
+            turn your ideas into reality and help your business grow.
           </p>
 
           {/* CTAs */}
@@ -125,7 +125,7 @@ export function HeroSection() {
               size="lg"
               className="bg-foreground hover:bg-foreground/90 text-background px-8 h-14 text-base rounded-full group"
             >
-              Start free trial
+              Explore Our Work
               <ArrowRight className="w-4 h-4 ml-2 transition-transform group-hover:translate-x-1" />
             </Button>
             <Button
@@ -133,7 +133,7 @@ export function HeroSection() {
               variant="outline"
               className="h-14 px-8 text-base rounded-full border-foreground/20 hover:bg-foreground/5"
             >
-              Watch demo
+              Start a Project
             </Button>
           </div>
         </div>
@@ -150,27 +150,35 @@ export function HeroSection() {
             <div key={i} className="flex gap-16">
               {[
                 {
-                  value: "20 days",
-                  label: "saved on builds",
-                  company: "NETFLIX",
+                  value: "100%",
+                  label: "Money-Back Guarantee",
+                  detail: "Risk-free investment",
                 },
-                { value: "98%", label: "faster deployment", company: "STRIPE" },
                 {
-                  value: "300%",
-                  label: "throughput increase",
-                  company: "LINEAR",
+                  value: "3 Months",
+                  label: "Free Maintenance",
+                  detail: "After project delivery",
                 },
-                { value: "6x", label: "faster to ship", company: "NOTION" },
+                {
+                  value: "Free",
+                  label: "Post-Launch Support",
+                  detail: "We're here to help",
+                },
+                {
+                  value: "On-Time",
+                  label: "Project Delivery",
+                  detail: "Committed to deadlines",
+                },
               ].map((stat) => (
                 <div
-                  key={`${stat.company}-${i}`}
+                  key={`${stat.label}-${i}`}
                   className="flex items-baseline gap-4"
                 >
                   <span className="text-4xl lg:text-5xl">{stat.value}</span>
                   <span className="text-sm text-muted-foreground">
                     {stat.label}
                     <span className="block font-mono text-xs mt-1">
-                      {stat.company}
+                      {stat.detail}
                     </span>
                   </span>
                 </div>
