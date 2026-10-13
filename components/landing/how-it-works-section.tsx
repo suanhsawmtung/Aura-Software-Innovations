@@ -5,12 +5,12 @@ import { useEffect, useRef, useState } from "react";
 const principles = [
   {
     number: "I",
-    title: "Small team, senior thinking",
+    title: "Close collaboration, senior thinking",
     description:
-      "We are a two-person software team that stays close to the work. You get direct access to the people designing, building, and shipping your product.",
-    code: `const team = {
-  people: 2,
-  layers: 0,
+      "We stay close to the work from the first conversation to the final release. You get direct access to the people designing, building, and shipping your product.",
+    code: `const collaboration = {
+  communication: 'direct',
+  decisions: 'shared',
   pointOfContact: 'the builders'
 }`,
   },
